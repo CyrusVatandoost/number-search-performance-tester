@@ -14,7 +14,7 @@ public class Searcher {
 		return array;
 	}
 	
-	public void linearSearch(int[] array, int target) {
+	public double linearSearch(int[] array, int target) {
 		long timeStart = System.nanoTime();
 //		System.out.println(timeStart);
 		for(int i = 0; i < array.length; i++) {
@@ -25,10 +25,10 @@ public class Searcher {
 		long timeEnd = System.nanoTime();
 //		System.out.println(timeEnd);
 //		System.out.println((timeEnd - timeStart) + " nanoseconds");
-		double seconds = (double) (timeEnd - timeStart) / 1000000000.0;
 		double miliseconds = (double) (timeEnd - timeStart) / 1000000.0;
 //		System.out.println(seconds + " seconds");
 		System.out.println(miliseconds + " miliseconds");
+		return miliseconds;
 	}
 	
 	public void binarySearch(int array, int target) {
