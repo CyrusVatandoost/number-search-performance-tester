@@ -1,10 +1,8 @@
 package main;
 
-public class Searcher {
+import java.util.ArrayList;
 
-	public Searcher() {
-		
-	}
+public class Searcher {
 	
 	public int[] generateSortedArray(int limit) {
 		int[] array = new int[limit];
@@ -33,6 +31,34 @@ public class Searcher {
 	
 	public void binarySearch(int array, int target) {
 		
+	}
+	
+	public double calculateMinimum(ArrayList<Double> array) {
+		double min = array.get(0);
+		for(Double d : array) {
+			if(d < min) {
+				min = d;
+			}
+		}
+		return min;
+	}
+	
+	public double calculateMaximum(ArrayList<Double> array) {
+		double max = array.get(0);
+		for(Double d : array) {
+			if(d > max) {
+				max = d;
+			}
+		}
+		return max;
+	}
+	
+	public double calculateAverage(ArrayList<Double> array) {
+		double sum = 0;
+		for(Double d : array) {
+			sum += d;
+		}
+		return sum / array.size();
 	}
 	
 }

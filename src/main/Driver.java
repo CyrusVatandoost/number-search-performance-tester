@@ -9,45 +9,22 @@ public class Driver {
 		Searcher searcher = new Searcher();
 		
 		Random rand = new Random();
-		ArrayList<Double> results = new ArrayList<Double>();;
-		for(int i = 0; i < 1000; i++) {
-			int[] array = searcher.generateSortedArray(10000000);
-			int  n = rand.nextInt(10000000);
+		ArrayList<Double> results = new ArrayList<Double>();
+		
+		int timesToTest = 100;
+		int testSize = 10000000;
+		for(int i = 0; i < timesToTest; i++) {
+			int[] array = searcher.generateSortedArray(testSize);
+			int  n = rand.nextInt(testSize);
 			System.out.println(n);
 			results.add(searcher.linearSearch(array, n));
 		}
 		
-		System.out.println("array size: " + 10000000);
-		System.out.println("times tested: " + 50);
-		
-		int total = results.size();
-		
-		// find min
-		double min = results.get(0);
-		for(Double d : results) {
-			if(d < min) {
-				min = d;
-			}
-		}
-		System.out.println("minimum: " + min);
-		
-		// find max
-		double max = results.get(0);
-		for(Double d : results) {
-			if(d > max) {
-				max = d;
-			}
-		}
-		System.out.println("maximum: " + max);
-		
-		// find average
-		double average = 0;
-		double sum = 0;
-		for(Double d : results) {
-			sum += d;
-		}
-		average = sum / results.size();
-		System.out.println("average: " + average);
+		System.out.println("array size: " + testSize);
+		System.out.println("times tested: " + timesToTest);
+		System.out.println("minimum: " + searcher.calculateMinimum(results));
+		System.out.println("maximum: " + searcher.calculateMaximum(results));
+		System.out.println("average: " + searcher.calculateAverage(results));
 	}
 
 }
