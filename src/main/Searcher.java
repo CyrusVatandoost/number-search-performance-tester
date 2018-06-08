@@ -29,8 +29,28 @@ public class Searcher {
 		return miliseconds;
 	}
 	
-	public void binarySearch(int array, int target) {
+	public double binarySearch(int[] array, int target) {
+		long timeStart = System.nanoTime();
+		int size = array.length;
+		int last = size-1;
+		int first = array[0];
 		
+		int mid = (first + last)/2;
+		while(first <= last){
+			if(array[mid] < target) {
+				first = mid + 1;
+			}else if(array[mid] == target) {
+				break;
+			}else{
+				last = mid - 1;
+			}
+			mid = (first + last)/2;
+		}
+
+		long timeEnd = System.nanoTime();
+		double miliseconds = (double) (timeEnd - timeStart) / 1000000.0;
+		System.out.println(miliseconds + " miliseconds");
+		return miliseconds;
 	}
 	
 	public double calculateMinimum(ArrayList<Double> array) {
