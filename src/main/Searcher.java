@@ -12,7 +12,7 @@ public class Searcher {
 		return array;
 	}
 	
-	public double linearSearch(int[] array, int target) {
+	public double[] linearSearch(int[] array, int target) {
 		long timeStart = System.nanoTime();
 //		System.out.println(timeStart);
 		Boolean found = false;
@@ -28,13 +28,20 @@ public class Searcher {
 		double miliseconds = (double) (timeEnd - timeStart) / 1000000.0;
 //		System.out.println(seconds + " seconds");
 //		System.out.println(miliseconds + " miliseconds");
+		
 		if(!found) {
-			return -1;
+			double[] something = new double[2];
+			something[0] = 0;
+			something[1] = miliseconds;
+			return something;
 		}
-		return miliseconds;
+		double[] something = new double[2];
+		something[0] = 1;
+		something[1] = miliseconds;
+		return something;
 	}
 	
-	public double binarySearch(int[] array, int target) {
+	public double[] binarySearch(int[] array, int target) {
 		Boolean found = false;
 		
 		long timeStart = System.nanoTime();
@@ -55,14 +62,20 @@ public class Searcher {
 			mid = (first + last)/2;
 		}
 		
-		if(!found) {
-			return -1;
-		}
-		
 		long timeEnd = System.nanoTime();
 		double miliseconds = (double) (timeEnd - timeStart) / 1000000.0;
 //		System.out.println(miliseconds + " miliseconds");
-		return miliseconds;
+		
+		if(!found) {
+			double[] something = new double[2];
+			something[0] = 0;
+			something[1] = miliseconds;
+			return something;
+		}
+		double[] something = new double[2];
+		something[0] = 1;
+		something[1] = miliseconds;
+		return something;
 	}
 	
 	public double calculateMinimum(ArrayList<Double> array) {

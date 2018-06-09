@@ -72,15 +72,15 @@ public class Driver {
 			int[] array = searcher.generateSortedArray(testSize);
 			int  n = rand.nextInt((int) (testSize * wrongNumbers));
 //			System.out.println(n);
-			Double result = searcher.linearSearch(array, n);
-//			Double result = searcher.binarySearch(array, n);
-			if(result != -1) {
+//			double[] result = searcher.linearSearch(array, n);
+			double[] result = searcher.binarySearch(array, n);
+			if(result[0] == 1) {
 				timesFound++;
-				results.add(result);
 			}
 			else {
 				timesNotFound++;
 			}
+			results.add(result[1]);
 		}
 		
 //		System.out.println("array size: " + testSize);
