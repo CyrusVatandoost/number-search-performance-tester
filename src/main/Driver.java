@@ -54,7 +54,7 @@ public class Driver {
 	}
 	
 	public static void search(int input) {
-		System.out.println("Input size: " + input);
+//		System.out.println("Input size: " + input);
 		Searcher searcher = new Searcher();
 		Random rand = new Random();
 		ArrayList<Double> results = new ArrayList<Double>();
@@ -72,8 +72,8 @@ public class Driver {
 			int[] array = searcher.generateSortedArray(testSize);
 			int  n = rand.nextInt((int) (testSize * wrongNumbers));
 //			System.out.println(n);
-//			Double result = searcher.linearSearch(array, n);
-			Double result = searcher.binarySearch(array, n);
+			Double result = searcher.linearSearch(array, n);
+//			Double result = searcher.binarySearch(array, n);
 			if(result != -1) {
 				timesFound++;
 				results.add(result);
@@ -83,13 +83,19 @@ public class Driver {
 			}
 		}
 		
-		System.out.println("array size: " + testSize);
-		System.out.println("times tested: " + timesToTest);
-		System.out.println("minimum: " + searcher.calculateMinimum(results));
-		System.out.println("maximum: " + searcher.calculateMaximum(results));
-		System.out.println("average: " + searcher.calculateAverage(results));
-		System.out.println("times found: " + timesFound);
-		System.out.println("times not found: " + timesNotFound);
+//		System.out.println("array size: " + testSize);
+//		System.out.println("times tested: " + timesToTest);
+//		System.out.println("minimum: " + searcher.calculateMinimum(results));
+//		System.out.println("maximum: " + searcher.calculateMaximum(results));
+//		System.out.println("average: " + searcher.calculateAverage(results));
+//		System.out.println("times found: " + timesFound);
+//		System.out.println("times not found: " + timesNotFound);
+		
+		System.out.print(searcher.calculateMinimum(results));
+		System.out.print("\t" + searcher.calculateMaximum(results));
+		System.out.print("\t" + searcher.calculateAverage(results));
+		System.out.print("\t" + timesFound);
+		System.out.print("\t" + timesNotFound);
 		System.out.println();
 	}
 	
