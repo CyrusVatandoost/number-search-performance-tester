@@ -64,7 +64,7 @@ public class Driver {
 		// wrongNumbers is what will be multiplied to the testSize to get a random
 		// number to be tested
 		// 1.0 = 100% of all inputs are inside the array
-		// 2.0 = 50% of all inputs are inside the array
+		// 2.0 = 50% of all inputs are inside the array	
 		Double wrongNumbers = 1.0;
 //		int testSize = askInputSize();
 		int testSize = input;
@@ -72,8 +72,8 @@ public class Driver {
 			int[] array = searcher.generateSortedArray(testSize);
 			int  n = rand.nextInt((int) (testSize * wrongNumbers));
 //			System.out.println(n);
-			Double result = searcher.linearSearch(array, n);
-//			Double result = searcher.binary(array, n);
+//			Double result = searcher.linearSearch(array, n);
+			Double result = searcher.binarySearch(array, n);
 			if(result != -1) {
 				timesFound++;
 				results.add(result);

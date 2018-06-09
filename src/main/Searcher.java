@@ -35,6 +35,8 @@ public class Searcher {
 	}
 	
 	public double binarySearch(int[] array, int target) {
+		Boolean found = false;
+		
 		long timeStart = System.nanoTime();
 		int size = array.length;
 		int last = size-1;
@@ -45,16 +47,21 @@ public class Searcher {
 			if(array[mid] < target) {
 				first = mid + 1;
 			}else if(array[mid] == target) {
+				found = true;
 				break;
 			}else{
 				last = mid - 1;
 			}
 			mid = (first + last)/2;
 		}
-
+		
+		if(!found) {
+			return -1;
+		}
+		
 		long timeEnd = System.nanoTime();
 		double miliseconds = (double) (timeEnd - timeStart) / 1000000.0;
-		System.out.println(miliseconds + " miliseconds");
+//		System.out.println(miliseconds + " miliseconds");
 		return miliseconds;
 	}
 	
