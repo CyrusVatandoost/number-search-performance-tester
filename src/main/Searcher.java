@@ -15,8 +15,10 @@ public class Searcher {
 	public double linearSearch(int[] array, int target) {
 		long timeStart = System.nanoTime();
 //		System.out.println(timeStart);
+		Boolean found = false;
 		for(int i = 0; i < array.length; i++) {
 			if(array[i] == target) {
+				found = true;
 				break;
 			}
 		}
@@ -25,7 +27,10 @@ public class Searcher {
 //		System.out.println((timeEnd - timeStart) + " nanoseconds");
 		double miliseconds = (double) (timeEnd - timeStart) / 1000000.0;
 //		System.out.println(seconds + " seconds");
-		System.out.println(miliseconds + " miliseconds");
+//		System.out.println(miliseconds + " miliseconds");
+		if(!found) {
+			return -1;
+		}
 		return miliseconds;
 	}
 	
